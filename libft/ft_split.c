@@ -14,35 +14,67 @@
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	p;
-	size_t	o;
+	size_t	y;
+	size_t	x;
 	size_t	i;
-	char	*ptr;
+	char	**res;
 
+	if (!s)
+		return (NULL);
+	x = 0;
+	i = 0;
 	while (s[i])
 	{
-		while (s[i] != c)
+		while (s[i] == c)
+			i++;
+		if (s[i] == '\0')
+			break ;
+		while (s[i] != c && s[i] != '\0')
+			i++;
+		x++;
+	}
+	res = malloc ((x + 1) * sizeof(char *));
+	if (!res)
+		return (NULL);
+	x = 0;
+	i = 0;
+	while (s[i])
+	{
+		y = 0;
+		while (s[i] == c)
+			i++;
+		if (s[i] == '\0')
+			break ;
+		while (s[i + y] && s[i + y] != c)
+			y++;
+		res[x] = malloc (y + 1);
+		if (!res[x])
+			return (NULL);
+		y = 0;
+		while (s[i] != c && s[i] != '\0')
 		{
-			ptr[p] == s[i];
-			p++;
+			res[x][y] = s[i];
+			y++;
 			i++;
 		}
-		ptr[p] = '\0';
+		res[x][y] = '\0';
+		x++;
 	}
-	
+	res[x] = NULL;
+	return (res);
 }
 
-int	main(void)
-{
-	char	**res;
-	int		i;
+// int	main(void)
+// {
+// 	char	**res;
+// 	int		i;
 
-	res = ft_split("ciao   come stai", ' ');
-	i = 0;
-	while (res[i])
-	{
-		printf("%s\n", res[i]);
-		i++;
-	}
-	return (0);
-}
+// 	res = ft_split("ciao   come stai", ' ');
+// 	i = 0;
+// 	while (res[i])
+// 	{
+// 		printf("%s\n", res[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }
