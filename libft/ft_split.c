@@ -6,7 +6,7 @@
 /*   By: aaamiri <aaamiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 22:44:02 by aaamiri           #+#    #+#             */
-/*   Updated: 2025/12/23 23:19:21 by aaamiri          ###   ########.fr       */
+/*   Updated: 2025/12/29 16:59:52 by aaamiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,3 @@ char	**ft_split(char const *s, char c)
 	res[x] = NULL;
 	return (res);
 }
-
-// int	main(void)
-// {
-// 	char	**res;
-// 	int		i;
-
-// 	res = ft_split("ciao   come stai", ' ');
-// 	i = 0;
-// 	while (res[i])
-// 	{
-// 		printf("%s\n", res[i]);
-// 		i++;
-// 	}
-// 	return (0);
-// }
